@@ -1,4 +1,6 @@
-﻿namespace FluentValidationTest.Models
+﻿using FluentValidation;
+
+namespace FluentValidationTest.Models
 {
     public class TaskItem
     {
@@ -11,5 +13,13 @@
         public int? ReminderMinutesBeforeDueDate { get; set; }
 
         public List<string> SubItems { get; set; } = null!;
+    }
+
+    public class TaskItemValidator : AbstractValidator<TaskItem>
+    {
+        public TaskItemValidator()
+        {
+            RuleFor(t => t.Description).NotEmpty();
+        }
     }
 }
