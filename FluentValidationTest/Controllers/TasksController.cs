@@ -12,11 +12,37 @@ namespace FluentValidationTest.Controllers
         public TasksController(ILogger<TasksController> logger) => _logger = logger;
 
         [HttpPost]
-        public TaskItem Post(TaskItem model)
+        public IActionResult Post(TaskItem model)
         {
-            // Do something...
+            //if (string.IsNullOrEmpty(model.Description))
+            //{
+            //    return BadRequest(new { Error = "Description cannot be empty" });
+            //}
 
-            return model;
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest();
+            //}
+
+            return Ok(model);
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var taskItem = new TaskItem();
+            var validator = new TaskItemValidator();
+            var result = validator.Validate(taskItem);
+
+            if (!result.IsValid)
+            {
+                foreach (var error in result.Errors)
+                {
+                    Console.WriteLine(error.ErrorMessage);
+                }
+            }
+
+            return Ok(result.ToString());
         }
     }
 }
