@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FluentValidationTest.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FluentValidationTest.Controllers
 {

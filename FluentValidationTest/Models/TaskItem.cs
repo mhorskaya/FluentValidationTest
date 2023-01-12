@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace FluentValidationTest
+﻿namespace FluentValidationTest.Models
 {
     public class TaskItem
     {
@@ -12,6 +10,6 @@ namespace FluentValidationTest
 
         public int? ReminderMinutesBeforeDueDate { get; set; }
 
-        public List<string> SubItems { get; set; }
+        public List<string> SubItems { get; set; } = null!;
     }
 }
