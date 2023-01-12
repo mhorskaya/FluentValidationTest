@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using System.ComponentModel.DataAnnotations;
 
 namespace FluentValidationTest.Models
 {
@@ -47,6 +46,4 @@ namespace FluentValidationTest.Models
                 .WithMessage("Values in the SubItems array cannot be empty");
         }
     }
-
-
 }
